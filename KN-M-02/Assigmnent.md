@@ -30,4 +30,4 @@
 
 ### C) Anwendung des Schemas in MongoDB
 
- Script zur Erstellung von Collections.
+[Script](./BookClub.js) zur Erstellung von Collections.
