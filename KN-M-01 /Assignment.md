@@ -33,7 +33,18 @@ The reason why you have to define the date data type the way I did was because w
 
 ### C) Erste Schritte Shell
 
-![image](https://github.com/user-attachments/assets/d1b82555-bb1b-4042-b5a6-fd679f40e95a)
+<img width="270" src="https://github.com/user-attachments/assets/d1b82555-bb1b-4042-b5a6-fd679f40e95a">
+<img width="480" src="https://github.com/user-attachments/assets/6645f9c7-c21e-4b98-83b2-897cd74b2570">
 
+<br>
+<br>
+
+1. `show dbs;` -> shows all current databases which currently are saved in the MongoDB
+2. `show databases;` -> does the same thing as 1.
+3. `use <database-name>;` -> changes to the given database so that future commands will be executed in that db
+4. `show collections;` ->  shows all names of the collections in the database which is currently used
+5. `show tables;` -> does the same as 4. but isn't commonly used in mongoDB
+
+The difference in table and collections isn't that big. Tables are commonly used in relational databases while collections are used in document based databases. Collections are the equivalent of tables in a relational databases.
 
 
