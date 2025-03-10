@@ -18,7 +18,7 @@
 
 ### B) Logisches Modell für MongoDB
 
-<img width="400" src="https://github.com/user-attachments/assets/cbca11d6-2202-40c8-88ae-3c07f8cebf1e">
+<img width="400" src="https://github.com/user-attachments/assets/7ee5ede0-8a78-42e5-a96b-d6e7c8828ae9">
 
 *Review*
 - A Member has to write the review.
