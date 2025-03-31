@@ -40,4 +40,47 @@
 ![image](https://github.com/user-attachments/assets/ac0ef5fb-300f-4072-9a0c-6318ae2b27aa)
 
 
+## B) Backup und Restore
+
+
+### *Variant 1*
+
+![image](https://github.com/user-attachments/assets/8d6b4598-993f-409c-ba0f-752ed12ba120)
+
+*delete collection*
+![image](https://github.com/user-attachments/assets/1107e408-d451-401a-8cad-5d09b958c187)
+
+#### Create Volume from Snapshot (Restore Data)
+
+![image](https://github.com/user-attachments/assets/4935f476-f5fd-4d9c-a004-f8f4c507906f)
+
+#### Attach Volume to Instance 
+
+![image](https://github.com/user-attachments/assets/9e31860e-344e-45f4-a526-0a74f893f3b8)
+
+#### Restored Data
+
+![image](https://github.com/user-attachments/assets/056e76b5-9bd2-4471-9ba3-5e1fc12a0976)
+
+
+### *Variant 2*
+
+![image](https://github.com/user-attachments/assets/0372a5ea-8152-4588-bbf5-184f15f047ba)
+
+
+#### Dropped the database
+
+![image](https://github.com/user-attachments/assets/0572862a-5991-4770-a9a6-3afa0ec13d03)
+
+#### Restore via mongostore
+
+![image](https://github.com/user-attachments/assets/d79a6aab-e23d-401b-8d6a-ef96c53e7ba0)
+
+
+
+![image](https://github.com/user-attachments/assets/d4f46fdf-a795-4b72-8989-30e327c56bbc)
+
+
+
+
 
