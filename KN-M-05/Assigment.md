@@ -80,6 +80,26 @@
 
 ![image](https://github.com/user-attachments/assets/d4f46fdf-a795-4b72-8989-30e327c56bbc)
 
+## C) Scaling
+
+
+### Replication
+![Replication](https://github.com/user-attachments/assets/b7784493-6e53-4160-acb6-a0d63b974320)
+
+In Replication each Node contains a copy of the data. If one of the servers is down the others are available to respond to requests. It also increases the capacity og the system to handle requests.
+What is also important to say is that only the primary node is able to be written into and also made updates to.
+
+
+### Sharding
+
+![image](https://github.com/user-attachments/assets/4294c7e0-8dee-4909-aeea-17129301251b)
+
+What sharding does is that it distributes the data across multiple nodes.
+
+I recommend for my company to use sharding since the sheer amount of books needs a scability which sharding offers. It can so save the needed data.
+
+
+
 
 
 
