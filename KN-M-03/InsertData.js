@@ -27,7 +27,7 @@ async function run() {
         { _id: book3Id, title: "Book Three", author: "Author C", genre: "Non-fiction", isbn: 3333333333, reviews: [] }
     ]);
 
-    await db.collection("books").updateOne(
+    await db.collection("books").insertOne(
         { _id: book1Id },
         { $push: { reviews: { rating: 4, comment: "Interesting read.", date: new Date(), member: member1Id } } }
     );
