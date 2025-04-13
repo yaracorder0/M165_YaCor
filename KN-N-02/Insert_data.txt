@@ -1,0 +1,66 @@
+/// Create Members
+CREATE (alice:Member {
+  firstname: "Alice",
+  lastname: "Miller",
+  email: "alice@example.com",
+  join_date: date("2022-03-15")
+});
+
+CREATE (bob:Member {
+  firstname: "Bob",
+  lastname: "Smith",
+  email: "bob@example.com",
+  join_date: date("2023-06-10")
+});
+
+/// Create Books
+CREATE (book1:Book {
+  title: "The Silent Forest",
+  author: "Jane Green",
+  genre: "Mystery",
+  ISBN: "9781234567890"
+});
+
+CREATE (book2:Book {
+  title: "Journey Beyond",
+  author: "Tom Field",
+  genre: "Adventure",
+  ISBN: "9789876543210"
+});
+
+/// Create Reviews
+CREATE (review1:Review {
+  rating: 4,
+  comment: "Really immersive read!",
+  date: date("2024-01-10")
+});
+
+CREATE (review2:Review {
+  rating: 5,
+  comment: "Loved the character development.",
+  date: date("2024-01-15")
+});
+
+// Link Reviews to Members and Books
+MATCH (alice:Member {email: "alice@example.com"}), (book1:Book {title: "The Silent Forest"}), (review1:Review)
+CREATE (alice)-[:WROTE]->(review1),
+       (review1)-[:REVIEWS]->(book1);
+
+MATCH (bob:Member {email: "bob@example.com"}), (book2:Book {title: "Journey Beyond"}), (review2:Review)
+CREATE (bob)-[:WROTE]->(review2),
+       (review2)-[:REVIEWS]->(book2);
+
+// Create a Meeting
+CREATE (meeting1:Meeting {
+  date: date("2024-03-01"),
+  location: "Library Conference Room"
+});
+
+// Link Meeting to Book and Members
+MATCH (meeting1:Meeting {date: date("2024-03-01")}),
+      (book1:Book {title: "The Silent Forest"}),
+      (alice:Member {email: "alice@example.com"}),
+      (bob:Member {email: "bob@example.com"})
+CREATE (meeting1)-[:DISCUSSES]->(book1),
+       (meeting1)-[:ATTENDED_BY]->(alice),
+       (meeting1)-[:ATTENDED_BY]->(bob);

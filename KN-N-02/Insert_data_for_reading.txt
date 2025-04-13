@@ -1,0 +1,37 @@
+CREATE (:Book {title: "1984", genre: "Dystopie", author: "George Orwell", isbn : "394392"});
+CREATE (:Book {title: "Faust", genre: "Drama", author: "Johann Wolfgang von Goethe",isbn : "90322"});
+CREATE (:Book {title: "Der Vorleser", genre: "Roman", author: "Bernhard Schlink", isbn : "14223"});
+CREATE (:Book {title: "Der Prozess", genre: "Roman",  author: "Franz Kafka", isbn : "123"});
+
+
+CREATE (:Member {firstname: "Anna", lastname: "Cleve", joined: 2021, birthdate: "19.02.2001", email:"email@sss.ch"});
+CREATE (:Member {firstname: "Ben", lastname: "Dover", joined: 2020, birthdate: "12.09.2000", email:"email2@sss.ch"});
+CREATE (:Member {firstname: "Clara", lastname: "Lustig", joined: 2022, birthdate: "05.12.2005", email:"email3@sss.ch"});
+CREATE (:Member {firstname: "David", lastname: "Cardinal", joined: 2019, birthdate: "14.08.2000", email:"email4@sss.ch"});
+
+
+CREATE (:Meeting { date: date("2024-03-01"), location: "Zürich"});
+CREATE (:Meeting { date: date("2024-04-15"), location: "Basel"});
+
+// Ben hat das Meeting besucht
+MATCH (m:Member {firstname: "Ben"}), (meet:Meeting {date: date("2024-03-01")})
+CREATE (m)-[:ATTENDED]->(meet);
+
+// Anna und Clara haben das zweite Meeting besucht
+MATCH (m1:Member {firstname: "Anna"}), (m2:Member {firstname: "Clara"}), (meet:Meeting {date: date("2024-04-15")})
+CREATE (m1)-[:ATTENDED]->(meet),
+       (m2)-[:ATTENDED]->(meet);
+
+// Anna hat "Faust" bewertet
+MATCH (m:Member {firstname: "Anna"}), (b:Book {title: "Faust"})
+CREATE (m)-[:REVIEWED {rating: 5, comment: "Wundervoll klassisch"}]->(b);
+
+// Ben hat "1984" bewertet
+MATCH (m:Member {firstname: "Ben"}), (b:Book {title: "1984"})
+CREATE (m)-[:REVIEWED {rating: 4, comment: "Erschreckend aktuell"}]->(b);
+
+MATCH (book:Book {title: "1984"}), (meeting:Meeting {date: date("2024-03-01")})
+CREATE (meeting)-[:DISCUSSED]->(book);
+
+MATCH (book:Book {title: "Faust"}), (meeting:Meeting {date: date("2024-04-15")})
+CREATE (meeting)-[:DISCUSSED]->(book);
