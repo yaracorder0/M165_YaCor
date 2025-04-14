@@ -158,21 +158,59 @@ SET m.phone = "+41 79 123 45 67";
 
 ## E) Zusätzliche Klauseln
 
-### SKIP
+### CASE
+
+*Use-Case*
+Ich will alle Buchrezensionens sehen die aber nach "top", "gut" und "schwach" sortiert sind. Mann hat so einen besseren Überblick. 
+
+````
+MATCH (m:Member)-[r:REVIEWED]->(b:Book)
+RETURN m.firstname + " " + m.lastname AS Reviewer,
+       b.title AS Buch,
+       r.rating AS Sterne,
+       CASE
+         WHEN r.rating >= 5 THEN "Top"
+         WHEN r.rating >= 3 THEN "Gut"
+         ELSE "Schwach"
+       END AS Bewertungskategorie;
+````
+
+`MATCH (m:Member)-[r:REVIEWED]->(b:Book)`: Sucht alle Rezensionen und verbindet Mitglieder mit den von ihnen bewerteten Büchern.
+
+`m.firstname + " " + m.lastname AS Reviewer`: Fügt Vor- und Nachname zu einem vollständigen Namen zusammen.
+
+`b.title AS Buch`: Zeigt den Titel des Buches an.
+
+`r.rating AS Sterne`: Zeigt die vergebene Sterneanzahl (z. B. 5 oder 3).
+
+`CASE ... END AS Bewertungskategorie`: Nutzt bedingte Logik:
+
+    Wenn Bewertung ≥ 5 → "Top"
+
+    Wenn Bewertung ≥ 3 → "Gut"
+
+    Sonst → "Schwach"
+
+![image](https://github.com/user-attachments/assets/f7b4384d-0230-4caa-9c46-bb35e847687c)
+
+
+### ORDER BY
+
+*Use-Case*
+Wann sind die nächsten Meeting des Bookclubs.
 
 ````
 MATCH (m:Meeting)
 RETURN m.date, m.location
-ORDER BY m.date ASC
-SKIP 1
-LIMIT 1;
+ORDER BY m.date ASC;
 ````
 
-### LIMIT
+`MATCH (m:Meeting)`: Wählt alle Meeting-Knoten.
 
-````
-MATCH (m:Meeting)
-RETURN m.date, m.location
-ORDER BY m.date ASC
-LIMIT 1;
-````
+`RETURN m.date, m.location`: Gibt das Datum und den Ort jedes Meetings zurück.
+
+`ORDER BY m.date ASC`: Sortiert alle Meetings aufsteigend nach Datum (also vom frühesten bis zum spätesten).
+
+
+![image](https://github.com/user-attachments/assets/520a48e9-994f-4310-b2f2-f26c9c618bdf)
+
