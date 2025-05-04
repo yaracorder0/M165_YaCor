@@ -14,6 +14,8 @@
 
 ![Cassandra](https://github.com/user-attachments/assets/35c8bf66-d082-4ce4-8dbf-890a347c2c2b)
 
+This Cassandra logical model organizes book club data for efficient querying. It includes four tables: meetings_by_date (partitioned by date), reviews_by_book (partitioned by book title), reviews_by_member (partitioned by member ID), and meetings_by_member (partitioned by member ID). Partition keys (K) determine data distribution, while clustering columns (C) order data within partitions. 
+
 
 #### C) Physisches Modell für Cassandra
 
